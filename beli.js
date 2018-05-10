@@ -12,4 +12,5 @@ function beli(uang, obj, cb){
   }, obj.waktu);
 }
 
+
 module.exports = beli;
