@@ -1,18 +1,26 @@
 const beli = require('./beli');
 
-const items = [
-  { item: 'Milo Shaved Ice', harga: 12000, waktu: 5000},
-  { item: 'Rolled Egg', harga: 20000, waktu: 4000},
-  { item: 'Ramen', harga: 45000, waktu: 8000},
-  { item: 'Iced Cendol', harga: 8000, waktu: 2000},
-  { item: 'Batagor', harga: 5000, waktu: 1500},
-];
+class Item {
+  constructor(item, harga, waktu) {
+    this.item = item;
+    this.harga = harga;
+    this.waktu = waktu;
+  }
+}
 
-beli(100000, items[0], (change) => {
-  beli(change, items[1], (change) => {
-    beli(change,items[2], (change) => {
-      beli(change, items[3], (change) => {
-        beli(change, items[4], (change) => {
+const miloShavedIce = new Item('Milo Shaved Ice', 12000, 5000);
+const rolledEgg = new Item('Rolled Egg', 20000, 4000);
+const ramen = new Item('Ramen', 45000, 8000);
+const icedCendol = new Item('Iced Cendol', 8000, 2000);
+const batagor = new Item('Batagor', 5000, 1500);
+
+const startingMoney = 100000;
+
+beli(startingMoney, miloShavedIce, (change) => {
+  beli(change, rolledEgg, (change) => {
+    beli(change,ramen, (change) => {
+      beli(change, icedCendol, (change) => {
+        beli(change, batagor, (change) => {
           console.log('Saya pulang, saya kenyang');
         });
       });
